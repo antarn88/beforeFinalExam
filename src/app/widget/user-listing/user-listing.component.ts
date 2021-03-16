@@ -11,6 +11,7 @@ import { UserService } from 'src/app/service/user.service';
 export class UserListingComponent implements OnInit {
 
   userList$: BehaviorSubject<User[]> = this.userService.usersList$;
+  phrase: string = '';
 
   constructor(private userService: UserService) { }
 
@@ -52,6 +53,10 @@ export class UserListingComponent implements OnInit {
         }
       );
     }
+  }
+
+  onChangePhrase(event: Event): void {
+    this.phrase = (event.target as HTMLInputElement).value;
   }
 
 }
