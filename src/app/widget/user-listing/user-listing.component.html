@@ -5,16 +5,16 @@
   <table class="table table-striped table-sm table-responsive mb-5">
     <thead>
       <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Username</th>
-        <th>Email</th>
-        <th>Active</th>
+        <th (click)="onClickTableHeader('id')">#</th>
+        <th (click)="onClickTableHeader('name')">Name</th>
+        <th (click)="onClickTableHeader('username')">Username</th>
+        <th (click)="onClickTableHeader('email')">Email</th>
+        <th (click)="onClickTableHeader('active')">Active</th>
         <th>Operations</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of userList$ | async | filter:'name':phrase">
+      <tr *ngFor="let user of userList$ | async | filter:'name':phrase | sorter:sorterColumn:sorterDirection">
         <td>
           <span>{{ user.id }}</span>
         </td>

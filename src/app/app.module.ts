@@ -10,6 +10,7 @@ import { UsersComponent } from './page/users/users.component';
 import { NavComponent } from './widget/nav/nav.component';
 import { UserListingComponent } from './widget/user-listing/user-listing.component';
 import { FilterPipe } from './pipe/filter.pipe';
+import { SorterPipe } from './pipe/sorter.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FilterPipe } from './pipe/filter.pipe';
     UsersComponent,
     NavComponent,
     UserListingComponent,
-    FilterPipe
+    FilterPipe,
+    SorterPipe
   ],
   imports: [
     BrowserModule,

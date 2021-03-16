@@ -12,6 +12,9 @@ export class UserListingComponent implements OnInit {
 
   userList$: BehaviorSubject<User[]> = this.userService.usersList$;
   phrase: string = '';
+  sorterColumn: string = 'id';
+  sorterDirection: string = 'ASC';
+  firstSorting: boolean = true;
 
   constructor(private userService: UserService) { }
 
@@ -57,6 +60,14 @@ export class UserListingComponent implements OnInit {
 
   onChangePhrase(event: Event): void {
     this.phrase = (event.target as HTMLInputElement).value;
+  }
+
+  onClickTableHeader(column: string): void {
+    if (this.firstSorting) {
+      this.sorterDirection = column === 'id' ? 'DESC' : 'ASC';
+      this.firstSorting = false;
+    } else this.sorterDirection = this.sorterDirection === 'ASC' ? 'DESC' : 'ASC';
+    this.sorterColumn = column;
   }
 
 }
